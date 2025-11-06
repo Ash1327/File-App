@@ -268,13 +268,13 @@ GET /api/analytics/organization-files
 ## Database Models
 
 ### User
-- `name` (String, required, 2-100 characters)
+- `name` (String, required, 3-50 characters)
 - `email` (String, required, unique, valid email format)
 - `organizationId` (ObjectId, ref: Organization, optional)
 - `role` (String: 'admin' or 'user', required)
 
 ### Organization
-- `name` (String, required, 1-200 characters)
+- `name` (String, required, 3-100 characters)
 - `createdAt` (Date)
 
 ### File
@@ -470,4 +470,6 @@ ISC
 
 ## Author
 
-Assignment Project
+Ashish Sharma
+ashishsharma10436@gmail.com
+
