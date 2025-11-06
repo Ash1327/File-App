@@ -31,13 +31,16 @@ A RESTful API application built with Node.js, Express.js, and MongoDB that handl
 ## Installation
 
 1. **Clone or download the project**
+   ```bash
+   git clone 
+   ```
 
-2. **Install dependencies**
+3. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
+4. **Set up environment variables**
    
    Create a `.env` file in the root directory:
    ```env
@@ -46,7 +49,7 @@ A RESTful API application built with Node.js, Express.js, and MongoDB that handl
    NODE_ENV=development
    ```
 
-4. **Start MongoDB**
+5. **Start MongoDB**
    
    Make sure MongoDB is running on your system:
    ```bash
@@ -476,6 +479,7 @@ ISC
 
 Ashish Sharma<br>
 ashishsharma10436@gmail.com
+
 
 
 
