@@ -200,7 +200,7 @@ GET /api/files/download/:id
 ```
 
 **Response:** Binary file stream with appropriate headers
-### Note - Click on the dropdown of Send button in the postman, Send and download will come ,Clikc that button
+**Note - ** Click on the dropdown of Send button in the postman, Send and download will come ,Clikc that button
 **Example:**
 ```bash
 curl -O http://localhost:3000/api/files/download/507f1f77bcf86cd799439011
@@ -472,6 +472,7 @@ ISC
 
 Ashish Sharma<br>
 ashishsharma10436@gmail.com
+
 
 
 
