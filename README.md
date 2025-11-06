@@ -470,6 +470,7 @@ ISC
 
 ## Author
 
-Ashish Sharma
+Ashish Sharma<br>
 ashishsharma10436@gmail.com
+
 
