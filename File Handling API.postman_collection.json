@@ -1,0 +1,474 @@
+{
+	"info": {
+		"_postman_id": "b26e1b77-cd92-4081-b00a-430837b1d464",
+		"name": "File Handling API",
+		"description": "API collection for Node.js + Express + MongoDB file handling application with modular architecture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48442982",
+		"_collection_link": "https://ashishmern146-cts-3616471.postman.co/workspace/Ashish-Sharma's-Workspace~b7fc64f3-5405-4cab-873b-72a0decd7863/collection/48442982-b26e1b77-cd92-4081-b00a-430837b1d464?action=share&source=collection_link&creator=48442982"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\",\n  \"email\": \"ashish@example.com\",\n  \"organizationId\": \"{{organizationId}}\",\n  \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"organizationId\": \"\",\n  \"role\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"success\": true,\n  \"status\": 201,\n  \"message\": \"User created successfully\",\n  \"data\": {\n    \"_id\": \"507f1f77bcf86cd799439011\",\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"organizationId\": null,\n    \"role\": \"admin\",\n    \"createdAt\": \"2024-01-01T00:00:00.000Z\",\n    \"updatedAt\": \"2024-01-01T00:00:00.000Z\"\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Create Organization",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/organizations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"organizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Acme Corporation\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/organizations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"organizations"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"success\": true,\n  \"status\": 201,\n  \"message\": \"Organization created successfully\",\n  \"data\": {\n    \"_id\": \"507f1f77bcf86cd799439011\",\n    \"name\": \"Acme Corporation\",\n    \"createdAt\": \"2024-01-01T00:00:00.000Z\",\n    \"updatedAt\": \"2024-01-01T00:00:00.000Z\"\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "File to upload (max 10MB)",
+									"type": "file",
+									"src": "/Users/sonoma/Downloads/house.png"
+								},
+								{
+									"key": "uploadedBy",
+									"value": "{{userId}}",
+									"description": "User ID who is uploading the file",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/files/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"files",
+								"upload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "uploadedBy",
+											"value": "{{userId}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/files/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"files",
+										"upload"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"success\": true,\n  \"status\": 201,\n  \"message\": \"File uploaded successfully\",\n  \"data\": {\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"fileName\": \"document.pdf\",\n    \"uploadedBy\": {\n      \"_id\": \"507f1f77bcf86cd799439012\",\n      \"name\": \"John Doe\",\n      \"email\": \"john@example.com\"\n    },\n    \"createdAt\": \"2024-01-01T00:00:00.000Z\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Download File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/files/download/{{fileId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"files",
+								"download",
+								"{{fileId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "File Download",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/files/download/{{fileId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"files",
+										"download",
+										"{{fileId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=\"document.pdf\""
+								}
+							],
+							"cookie": [],
+							"body": "[Binary file content]"
+						},
+						{
+							"name": "Download File",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/files/download/{{fileId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"files",
+										"download",
+										"{{fileId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								},
+								{
+									"key": "Content-Length",
+									"value": "5466"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=\"user-data.txt\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 06 Nov 2025 01:52:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "#!/bin/bash\nsudo yum update -y\nsudo yum install -y httpd\nsudo yum install -y git\nexport TOKEN=`curl -X PUT \"http://169.254.169.254/latest/api/token\" -H \"X-aws-ec2-metadata-token-ttl-seconds: 21600\"`\nexport META_INST_ID=`curl http://169.254.169.254/latest/meta-data/instance-id -H \"X-aws-ec2-metadata-token: $TOKEN\"`\nexport META_INST_TYPE=`curl http://169.254.169.254/latest/meta-data/instance-type -H \"X-aws-ec2-metadata-token: $TOKEN\"`\nexport META_INST_AZ=`curl http://169.254.169.254/latest/meta-data/placement/availability-zone -H \"X-aws-ec2-metadata-token: $TOKEN\"`\ncd /var/www/html\necho \"<!DOCTYPE html>\" >> index.html\necho \"<html lang=\"en\">\" >> index.html\necho \"<head>\" >> index.html\necho \"    <meta charset=\"UTF-8\">\" >> index.html\necho \"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\" >> index.html\necho \"    <style>\" >> index.html\necho \"        @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');\" >> index.html\necho \"        html {\" >> index.html\necho \"            position: relative;\" >> index.html\necho \"            overflow-x: hidden !important;\" >> index.html\necho \"        }\" >> index.html\necho \"        * {\" >> index.html\necho \"            box-sizing: border-box;\" >> index.html\necho \"        }\" >> index.html\necho \"        body {\" >> index.html\necho \"            font-family: 'Open Sans', sans-serif;\" >> index.html\necho \"            color: #324e63;\" >> index.html\necho \"        }\" >> index.html\necho \"        .wrapper {\" >> index.html\necho \"            width: 100%;\" >> index.html\necho \"            width: 100%;\" >> index.html\necho \"            height: auto;\" >> index.html\necho \"            min-height: 90vh;\" >> index.html\necho \"            padding: 50px 20px;\" >> index.html\necho \"            padding-top: 100px;\" >> index.html\necho \"            display: flex;\" >> index.html\necho \"        }\" >> index.html\necho \"        .instance-card {\" >> index.html\necho \"            width: 100%;\" >> index.html\necho \"            min-height: 380px;\" >> index.html\necho \"            margin: auto;\" >> index.html\necho \"            box-shadow: 12px 12px 2px 1px rgba(13, 28, 39, 0.4);\" >> index.html\necho \"            background: #fff;\" >> index.html\necho \"            border-radius: 15px;\" >> index.html\necho \"            border-width: 1px;\" >> index.html\necho \"            max-width: 500px;\" >> index.html\necho \"            position: relative;\" >> index.html\necho \"            border: thin groove #9c83ff;\" >> index.html\necho \"        }\" >> index.html\necho \"        .instance-card__cnt {\" >> index.html\necho \"            margin-top: 35px;\" >> index.html\necho \"            text-align: center;\" >> index.html\necho \"            padding: 0 20px;\" >> index.html\necho \"            padding-bottom: 40px;\" >> index.html\necho \"            transition: all .3s;\" >> index.html\necho \"        }\" >> index.html\necho \"        .instance-card__name {\" >> index.html\necho \"            font-weight: 700;\" >> index.html\necho \"            font-size: 24px;\" >> index.html\necho \"            color: #6944ff;\" >> index.html\necho \"            margin-bottom: 15px;\" >> index.html\necho \"        }\" >> index.html\necho \"        .instance-card-inf__item {\" >> index.html\necho \"            padding: 10px 35px;\" >> index.html\necho \"            min-width: 150px;\" >> index.html\necho \"        }\" >> index.html\necho \"        .instance-card-inf__title {\" >> index.html\necho \"            font-weight: 700;\" >> index.html\necho \"            font-size: 27px;\" >> index.html\necho \"            color: #324e63;\" >> index.html\necho \"        }\" >> index.html\necho \"        .instance-card-inf__txt {\" >> index.html\necho \"            font-weight: 500;\" >> index.html\necho \"            margin-top: 7px;\" >> index.html\necho \"        }\" >> index.html\necho \"    </style>\" >> index.html\necho \"    <title>Amazon EC2 Status</title>\" >> index.html\necho \"</head>\" >> index.html\necho \"<body>\" >> index.html\necho \"    <div class=\"wrapper\">\" >> index.html\necho \"        <div class=\"instance-card\">\" >> index.html\necho \"            <div class=\"instance-card__cnt\">\" >> index.html\necho \"                <div class=\"instance-card__name\">Your EC2 Instance is running!</div>\" >> index.html\necho \"                <div class=\"instance-card-inf\">\" >> index.html\necho \"                    <div class=\"instance-card-inf__item\">\" >> index.html\necho \"                        <div class=\"instance-card-inf__txt\">Instance Id</div>\" >> index.html\necho \"                        <div class=\"instance-card-inf__title\">\" $META_INST_ID \"</div>\" >> index.html\necho \"                    </div>\" >> index.html\necho \"                    <div class=\"instance-card-inf__item\">\" >> index.html\necho \"                        <div class=\"instance-card-inf__txt\">Instance Type</div>\" >> index.html\necho \"                        <div class=\"instance-card-inf__title\">\" $META_INST_TYPE \"</div>\" >> index.html\necho \"                    </div>\" >> index.html\necho \"                    <div class=\"instance-card-inf__item\">\" >> index.html\necho \"                        <div class=\"instance-card-inf__txt\">Availability zone</div>\" >> index.html\necho \"                        <div class=\"instance-card-inf__title\">\" $META_INST_AZ \"</div>\" >> index.html\necho \"                    </div>\" >> index.html\necho \"                </div>\" >> index.html\necho \"            </div>\" >> index.html\necho \"        </div>\" >> index.html\necho \"</body>\" >> index.html\necho \"</html>\" >> index.html\nsudo service httpd start"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"item": [
+				{
+					"name": "Users by Organization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/analytics/users-by-organization",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"users-by-organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/analytics/users-by-organization",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"analytics",
+										"users-by-organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"success\": true,\n  \"status\": 200,\n  \"message\": \"Users by organization analytics retrieved successfully\",\n  \"data\": [\n    {\n      \"organizationId\": \"507f1f77bcf86cd799439011\",\n      \"organizationName\": \"Acme Corporation\",\n      \"userCount\": 5,\n      \"users\": [\n        {\n          \"userId\": \"507f1f77bcf86cd799439012\",\n          \"name\": \"John Doe\",\n          \"email\": \"john@example.com\",\n          \"role\": \"admin\"\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Organization Files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/analytics/organization-files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"organization-files"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/analytics/organization-files",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"analytics",
+										"organization-files"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"success\": true,\n  \"status\": 200,\n  \"message\": \"Organization files analytics retrieved successfully\",\n  \"data\": [\n    {\n      \"organizationId\": \"507f1f77bcf86cd799439011\",\n      \"organizationName\": \"Acme Corporation\",\n      \"totalFiles\": 10,\n      \"uploadedByUsers\": [\n        {\n          \"userId\": \"507f1f77bcf86cd799439012\",\n          \"userName\": \"John Doe\",\n          \"userEmail\": \"john@example.com\"\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "string",
+			"description": "User ID from create user response"
+		},
+		{
+			"key": "organizationId",
+			"value": "",
+			"type": "string",
+			"description": "Organization ID from create organization response"
+		},
+		{
+			"key": "fileId",
+			"value": "",
+			"type": "string",
+			"description": "File ID from upload file response"
+		}
+	]
+}
