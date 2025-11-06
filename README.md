@@ -5,7 +5,7 @@ A RESTful API application built with Node.js, Express.js, and MongoDB that handl
 ## Features
 
 - **User Management**: Create users with roles (admin/user) and organization associations
-- **Organization Management**: Create and manage organizations
+- **Organization Management**: Create organizations
 - **File Operations**: Upload and download files with streaming support
 - **Analytics**: Aggregate data to get insights about users and files by organization
 - **Modular Architecture**: Clean separation of concerns with modules (model, service, controller, validation)
@@ -472,5 +472,6 @@ ISC
 
 Ashish Sharma<br>
 ashishsharma10436@gmail.com
+
 
 
